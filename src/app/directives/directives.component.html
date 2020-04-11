@@ -1,0 +1,51 @@
+<div>
+<!-- ngIf Directive -->
+<h4>ngIf & else Directive</h4>
+<input type="text" placeholder="Enter Server Id" [(ngModel)]="serverId" type="number"> <br><br>
+<button (click)="oncreateServer()" [disabled]="serverId == ''">Add Server</button>
+<p *ngIf="onCreateServer else noServer">The Server is created with Id {{createServer}}</p>
+
+<ng-template #noServer>
+ <p>No server is created</p>
+</ng-template>
+<hr>
+<!-- ngIf Directive -->
+
+
+<!-- ngStyle Directive -->
+<h4>ngStyle</h4>
+  <p [ngStyle]="{backgroundColor:getColor()}">The Server status is {{serverStatus}}</p>
+  <p [ngStyle]="{backgroundColor:serverStatus === 'online' ? 'green' : 'red'}">The Server status is {{serverStatus}}</p>
+
+<!-- ngStyle Directive -->
+
+<hr>
+</div>
+
+<div>
+<!-- ngClass Directive -->
+  <h4>ngClass</h4>
+  <p [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{color:serverStatus === 'online'}">The Server status is {{serverStatus}}</p>
+
+<!-- ngClass Directive -->
+<hr>
+
+<!-- ngFor -->
+<h4>ngFor</h4>
+<p *ngFor="let server of servers">
+  {{server}}
+</p>
+<hr>
+<!-- ngFor -->
+
+<!-- Assignment -->
+  <h4>Section Assignement</h4>
+
+  <!-- <button (click)="Secretpassword = !Secretpassword">Display Details</button> -->
+  <button (click)="ontoggleDetails()">Display list</button>
+  <p *ngIf="Secretpassword">Secret Password is tuna</p>
+  <p
+  [ngStyle]="{'background-color':logs>2 ? 'blue':'white'}"
+  [ngClass]="{color:logs>5}"
+  *ngFor="let logs of log">{{logs}}</p>
+<!-- Assignment -->
